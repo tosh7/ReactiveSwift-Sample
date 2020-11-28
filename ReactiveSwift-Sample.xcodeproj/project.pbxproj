@@ -18,6 +18,7 @@
 		2B4E309D257242820032EB25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4E309B257242820032EB25 /* LaunchScreen.storyboard */; };
 		2B4E30AA257244D80032EB25 /* ReactiveSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B4E30A9257244D80032EB25 /* ReactiveSwift */; };
 		2BC3D2882572682C00805E66 /* String+ectension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC3D2872572682C00805E66 /* String+ectension.swift */; };
+		2BC3D28C2572955400805E66 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2BC3D28B2572955400805E66 /* ReactiveCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4E30AA257244D80032EB25 /* ReactiveSwift in Frameworks */,
+				2BC3D28C2572955400805E66 /* ReactiveCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +125,7 @@
 			name = "ReactiveSwift-Sample";
 			packageProductDependencies = (
 				2B4E30A9257244D80032EB25 /* ReactiveSwift */,
+				2BC3D28B2572955400805E66 /* ReactiveCocoa */,
 			);
 			productName = "ReactiveSwift-Sample";
 			productReference = 2B4E308D2572427D0032EB25 /* ReactiveSwift-Sample.app */;
@@ -153,6 +156,7 @@
 			mainGroup = 2B4E30842572427D0032EB25;
 			packageReferences = (
 				2B4E30A8257244D80032EB25 /* XCRemoteSwiftPackageReference "ReactiveSwift" */,
+				2BC3D28A2572955400805E66 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
 			);
 			productRefGroup = 2B4E308E2572427D0032EB25 /* Products */;
 			projectDirPath = "";
@@ -401,6 +405,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		2BC3D28A2572955400805E66 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -408,6 +420,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B4E30A8257244D80032EB25 /* XCRemoteSwiftPackageReference "ReactiveSwift" */;
 			productName = ReactiveSwift;
+		};
+		2BC3D28B2572955400805E66 /* ReactiveCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BC3D28A2572955400805E66 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
+			productName = ReactiveCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
