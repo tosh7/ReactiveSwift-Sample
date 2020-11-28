@@ -70,9 +70,6 @@
                                 <state key="normal" title="LOGIN">
                                     <color key="titleColor" name="textColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="loginButtonTapped" destination="8Kf-e0-qoP" eventType="touchUpInside" id="nLV-VP-kF0"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="psp-9G-Blb"/>

@@ -36,6 +36,11 @@ final class LoginViewController: UIViewController {
             .filter { !$0.isEmpty }
             .observeValues(viewModel.inputs.passwordTextFieldDidChange(password:))
 
+        loginButton.reactive.controlEvents(.touchUpInside)
+            .observeValues { [weak self] _ in
+                self?.performSegue(withIdentifier: "loginToHome", sender: nil)
+            }
+
         // Outputs
         viewModel.outputs.userNameValidationSignal.observeValues { userNameValidation in
             switch userNameValidation {
@@ -50,9 +55,5 @@ final class LoginViewController: UIViewController {
             self?.loginButton.isEnabled = isValidated
             self?.loginButton.alpha = isValidated ? 1 : 0.5
         }
-    }
-
-    @IBAction private func loginButtonTapped() {
-        performSegue(withIdentifier: "loginToHome", sender: nil)
     }
 }
