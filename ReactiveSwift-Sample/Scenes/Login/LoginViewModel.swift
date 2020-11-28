@@ -23,6 +23,10 @@ protocol LoginViewModelType {
 
 final class LoginViewModel: LoginViewModelInputs, LoginViewModelOutputs, LoginViewModelType {
     
+    init() {
+        
+    }
+    
     var inputs: LoginViewModelInputs { return self }
     var outputs: LoginViewModelOutputs { return self }
 }

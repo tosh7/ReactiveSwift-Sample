@@ -8,6 +8,22 @@
 import UIKit
 import ReactiveSwift
 
+enum LoginStatus {
+    case success
+    case fail(error: String)
+}
+
 final class LoginViewController: UIViewController {
+    private var loginStatus: LoginStatus = .fail(error: "初期状態")
+    private let viewModel = LoginViewModel()
     
+    override func viewDidLoad() {
+        loginStatus = .success
+    }
+    
+    @IBAction private func loginButtonTapped() {
+        guard case .success = loginStatus else { return }
+        
+        performSegue(withIdentifier: "loginToHome", sender: nil)
+    }
 }
