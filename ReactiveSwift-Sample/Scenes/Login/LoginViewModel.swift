@@ -16,6 +16,7 @@ protocol LoginViewModelInputs {
 protocol LoginViewModelOutputs {
     var userNameValidationSignal: Signal<LoginValidation, Never> { get }
     var passwordValidationSignal: Signal<LoginValidation, Never> { get }
+    var isValidated: Signal<Bool, Never> { get }
 }
 
 protocol LoginViewModelType {
@@ -24,12 +25,13 @@ protocol LoginViewModelType {
 }
 
 final class LoginViewModel: LoginViewModelInputs, LoginViewModelOutputs, LoginViewModelType {
-    
+
     init() {
         userNameValidationSignal = userNameTextFiledDidChangeIO.output
             .map { userName -> LoginValidation in
                 return userName.isEmail ? .success : .fail(error: "正しいユーザーネームではありません")
             }
+
         passwordValidationSignal = passwordTextFieldIO.output
             .map { password -> LoginValidation in
                 var errorLog: String = ""
@@ -50,21 +52,30 @@ final class LoginViewModel: LoginViewModelInputs, LoginViewModelOutputs, LoginVi
                     return .fail(error: errorLog)
                 }
             }
+
+        isValidated = Signal.combineLatest(
+            userNameTextFiledDidChangeIO.output,
+            passwordTextFieldIO.output
+        )
+        .map { (userName, password) -> Bool in
+            return userName.isEmail && password.isPassword
+        }
     }
-    
+
     private let userNameTextFiledDidChangeIO = Signal<String, Never>.pipe()
     func userNameTextFieldDidChange(userName: String) {
         userNameTextFiledDidChangeIO.input.send(value: userName)
     }
-    
+
     private let passwordTextFieldIO = Signal<String, Never>.pipe()
     func passwordTextFieldDidChange(password: String) {
         passwordTextFieldIO.input.send(value: password)
     }
-    
+
     let userNameValidationSignal: Signal<LoginValidation, Never>
     let passwordValidationSignal: Signal<LoginValidation, Never>
-    
+    let isValidated: Signal<Bool, Never>
+
     var inputs: LoginViewModelInputs { return self }
     var outputs: LoginViewModelOutputs { return self }
 }

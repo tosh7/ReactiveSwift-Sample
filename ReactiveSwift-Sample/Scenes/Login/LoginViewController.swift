@@ -7,6 +7,7 @@
 
 import UIKit
 import ReactiveSwift
+import ReactiveCocoa
 
 enum LoginValidation {
     case success
@@ -14,20 +15,44 @@ enum LoginValidation {
 }
 
 final class LoginViewController: UIViewController {
-    
+
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
-    
-    private var loginValidation: LoginValidation = .fail(error: "初期状態")
+
     private let viewModel = LoginViewModel()
-    
+
     override func viewDidLoad() {
+        bindings()
     }
-    
+
+    private func bindings() {
+        // Inputs
+        userNameTextField.reactive.continuousTextValues
+            .filter { !$0.isEmpty }
+            .observeValues(viewModel.inputs.userNameTextFieldDidChange(userName:))
+
+        passwordTextField.reactive.continuousTextValues
+            .filter { !$0.isEmpty }
+            .observeValues(viewModel.inputs.passwordTextFieldDidChange(password:))
+
+        // Outputs
+        viewModel.outputs.userNameValidationSignal.observeValues { userNameValidation in
+            switch userNameValidation {
+            case .success:
+                print("成功")
+            case let .fail(errorCode):
+                print(errorCode)
+            }
+        }
+
+        viewModel.outputs.isValidated.observeValues { [weak self] isValidated in
+            self?.loginButton.isEnabled = isValidated
+            self?.loginButton.alpha = isValidated ? 1 : 0.5
+        }
+    }
+
     @IBAction private func loginButtonTapped() {
-        guard case .success = loginValidation else { return }
-        
         performSegue(withIdentifier: "loginToHome", sender: nil)
     }
 }
