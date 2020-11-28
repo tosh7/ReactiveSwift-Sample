@@ -14,11 +14,17 @@ enum LoginStatus {
 }
 
 final class LoginViewController: UIViewController {
+    
+    @IBOutlet var userNameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var loginButton: UIButton!
+    
     private var loginStatus: LoginStatus = .fail(error: "初期状態")
     private let viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         loginStatus = .success
+        
     }
     
     @IBAction private func loginButtonTapped() {

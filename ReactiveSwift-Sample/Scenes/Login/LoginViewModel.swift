@@ -9,7 +9,8 @@ import Foundation
 import ReactiveSwift
 
 protocol LoginViewModelInputs {
-    
+    func userNameTextFieldDidChange(userName: String)
+    func passwordTextFieldDidChange(password: String)
 }
 
 protocol LoginViewModelOutputs {
@@ -25,6 +26,14 @@ final class LoginViewModel: LoginViewModelInputs, LoginViewModelOutputs, LoginVi
     
     init() {
         
+    }
+    
+    func userNameTextFieldDidChange(userName: String) {
+        
+    }
+    
+    func passwordTextFieldDidChange(password: String) {
+         
     }
     
     var inputs: LoginViewModelInputs { return self }

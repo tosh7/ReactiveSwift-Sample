@@ -93,6 +93,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="5Zf-AA-rFV" id="fd9-TI-YZi"/>
+                        <outlet property="passwordTextField" destination="9gt-hy-lpR" id="mdP-v9-L09"/>
+                        <outlet property="userNameTextField" destination="8L3-GT-0WF" id="CPy-fQ-hnC"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginToHome" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="OBd-qc-htw"/>
                     </connections>
                 </viewController>
