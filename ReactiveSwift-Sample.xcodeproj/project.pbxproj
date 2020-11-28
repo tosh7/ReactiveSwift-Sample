@@ -17,6 +17,7 @@
 		2B4E309A257242820032EB25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4E3099257242820032EB25 /* Assets.xcassets */; };
 		2B4E309D257242820032EB25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4E309B257242820032EB25 /* LaunchScreen.storyboard */; };
 		2B4E30AA257244D80032EB25 /* ReactiveSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B4E30A9257244D80032EB25 /* ReactiveSwift */; };
+		2BC3D2882572682C00805E66 /* String+ectension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC3D2872572682C00805E66 /* String+ectension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		2B4E3099257242820032EB25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B4E309C257242820032EB25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B4E309E257242820032EB25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BC3D2872572682C00805E66 /* String+ectension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ectension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +92,17 @@
 				2B4A66B825725C5900569032 /* Colors.xcassets */,
 				2B4E309E257242820032EB25 /* Info.plist */,
 				2B4A66AA2572533800569032 /* Scenes */,
+				2BC3D2862572681100805E66 /* Utils */,
 			);
 			path = "ReactiveSwift-Sample";
+			sourceTree = "<group>";
+		};
+		2BC3D2862572681100805E66 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2BC3D2872572682C00805E66 /* String+ectension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				2B4E30912572427D0032EB25 /* AppDelegate.swift in Sources */,
 				2B4A66B32572545600569032 /* LoginViewModel.swift in Sources */,
 				2B4E30932572427D0032EB25 /* SceneDelegate.swift in Sources */,
+				2BC3D2882572682C00805E66 /* String+ectension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
