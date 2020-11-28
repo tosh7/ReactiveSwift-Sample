@@ -16,7 +16,7 @@ protocol LoginViewModelInputs {
 protocol LoginViewModelOutputs {
     var userNameValidationSignal: Signal<LoginValidation, Never> { get }
     var passwordValidationSignal: Signal<LoginValidation, Never> { get }
-    var isValidated: Signal<Bool, Never> { get }
+    var isValidated: SignalProducer<Bool, Never> { get }
 }
 
 protocol LoginViewModelType {
@@ -27,12 +27,12 @@ protocol LoginViewModelType {
 final class LoginViewModel: LoginViewModelInputs, LoginViewModelOutputs, LoginViewModelType {
 
     init() {
-        userNameValidationSignal = userNameTextFiledDidChangeIO.output
+        userNameValidationSignal = userNameTextFiledDidChangeProperty.signal
             .map { userName -> LoginValidation in
                 return userName.isEmail ? .success : .fail(error: "正しいユーザーネームではありません")
             }
 
-        passwordValidationSignal = passwordTextFieldIO.output
+        passwordValidationSignal = passwordTextFieldProperty.signal
             .map { password -> LoginValidation in
                 var errorLog: String = ""
                 
@@ -53,28 +53,28 @@ final class LoginViewModel: LoginViewModelInputs, LoginViewModelOutputs, LoginVi
                 }
             }
 
-        isValidated = Signal.combineLatest(
-            userNameTextFiledDidChangeIO.output,
-            passwordTextFieldIO.output
+        isValidated = SignalProducer.combineLatest(
+            userNameTextFiledDidChangeProperty.producer,
+            passwordTextFieldProperty.producer
         )
         .map { (userName, password) -> Bool in
             return userName.isEmail && password.isPassword
         }
     }
 
-    private let userNameTextFiledDidChangeIO = Signal<String, Never>.pipe()
+    private let userNameTextFiledDidChangeProperty = MutableProperty("")
     func userNameTextFieldDidChange(userName: String) {
-        userNameTextFiledDidChangeIO.input.send(value: userName)
+        userNameTextFiledDidChangeProperty.value = userName
     }
 
-    private let passwordTextFieldIO = Signal<String, Never>.pipe()
+    private let passwordTextFieldProperty = MutableProperty("")
     func passwordTextFieldDidChange(password: String) {
-        passwordTextFieldIO.input.send(value: password)
+        passwordTextFieldProperty.value = password
     }
 
     let userNameValidationSignal: Signal<LoginValidation, Never>
     let passwordValidationSignal: Signal<LoginValidation, Never>
-    let isValidated: Signal<Bool, Never>
+    let isValidated: SignalProducer<Bool, Never>
 
     var inputs: LoginViewModelInputs { return self }
     var outputs: LoginViewModelOutputs { return self }

@@ -51,7 +51,7 @@ final class LoginViewController: UIViewController {
             }
         }
 
-        viewModel.outputs.isValidated.observeValues { [weak self] isValidated in
+        viewModel.outputs.isValidated.startWithValues { [weak self] isValidated in
             self?.loginButton.isEnabled = isValidated
             self?.loginButton.alpha = isValidated ? 1 : 0.5
         }
