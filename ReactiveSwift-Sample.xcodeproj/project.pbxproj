@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B4A66AE2572544200569032 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A66AD2572544200569032 /* LoginViewController.swift */; };
+		2B4A66B32572545600569032 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4A66B22572545600569032 /* LoginViewModel.swift */; };
 		2B4E30912572427D0032EB25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E30902572427D0032EB25 /* AppDelegate.swift */; };
 		2B4E30932572427D0032EB25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E30922572427D0032EB25 /* SceneDelegate.swift */; };
 		2B4E30952572427D0032EB25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E30942572427D0032EB25 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B4A66AD2572544200569032 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2B4A66B22572545600569032 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2B4E308D2572427D0032EB25 /* ReactiveSwift-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactiveSwift-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4E30902572427D0032EB25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B4E30922572427D0032EB25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B4A66AA2572533800569032 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2B4A66AB2572535400569032 /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2B4A66AB2572535400569032 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2B4A66AD2572544200569032 /* LoginViewController.swift */,
+				2B4A66B22572545600569032 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		2B4E30842572427D0032EB25 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +86,7 @@
 				2B4E3099257242820032EB25 /* Assets.xcassets */,
 				2B4E309B257242820032EB25 /* LaunchScreen.storyboard */,
 				2B4E309E257242820032EB25 /* Info.plist */,
+				2B4A66AA2572533800569032 /* Scenes */,
 			);
 			path = "ReactiveSwift-Sample";
 			sourceTree = "<group>";
@@ -145,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4A66AE2572544200569032 /* LoginViewController.swift in Sources */,
 				2B4E30952572427D0032EB25 /* ViewController.swift in Sources */,
 				2B4E30912572427D0032EB25 /* AppDelegate.swift in Sources */,
+				2B4A66B32572545600569032 /* LoginViewModel.swift in Sources */,
 				2B4E30932572427D0032EB25 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
