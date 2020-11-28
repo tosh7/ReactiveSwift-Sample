@@ -8,7 +8,7 @@
 import UIKit
 import ReactiveSwift
 
-enum LoginStatus {
+enum LoginValidation {
     case success
     case fail(error: String)
 }
@@ -19,16 +19,14 @@ final class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     
-    private var loginStatus: LoginStatus = .fail(error: "初期状態")
+    private var loginValidation: LoginValidation = .fail(error: "初期状態")
     private let viewModel = LoginViewModel()
     
     override func viewDidLoad() {
-        loginStatus = .success
-        
     }
     
     @IBAction private func loginButtonTapped() {
-        guard case .success = loginStatus else { return }
+        guard case .success = loginValidation else { return }
         
         performSegue(withIdentifier: "loginToHome", sender: nil)
     }
